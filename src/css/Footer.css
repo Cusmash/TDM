@@ -1,0 +1,32 @@
+.footer-bg {
+    background-color: #4fa0cb;
+    margin-top: 20px;
+}
+
+.footer-g {
+    border-left-style: solid;
+    border-left-color: white;
+    border-left-width: 2px;
+}
+
+.footer-logo {
+    width: 180px;
+    height: "auto";
+    padding-top: 7;
+}
+
+.footer-link {
+    color: white;
+    padding-left: 10px;
+}
+
+.footer-container {
+    margin: 40px;
+}
+
+.footer-copy {
+    color:rgb(66, 66, 66);
+    background-color: white;
+    padding: 10px;
+    font-size: 10px;
+}

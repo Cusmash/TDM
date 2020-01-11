@@ -1,0 +1,14 @@
+.directory-inicio {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.colorButton{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}

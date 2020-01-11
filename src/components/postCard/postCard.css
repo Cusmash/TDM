@@ -1,0 +1,33 @@
+.card{
+    min-width: 30%;
+    height: 240px;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 0 7.5px 15px;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+.title {
+    padding-top: 170px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    
+}
+
+.titulo2{
+    color: white;
+    overflow: hidden;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 17px;
+    width: 300px;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.card:hover{
+    opacity: 1;
+}

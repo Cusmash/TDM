@@ -1,0 +1,39 @@
+.espacio-header {
+  padding-top: 20px;
+}
+
+.img-art {
+  height: 300px;
+}
+
+.avatar {
+  margin: 10,
+}
+
+.tags {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.text-align {
+  text-align: justify;
+}
+
+.Facebook {
+  float: left !important;
+}
+
+.titulo-espacio {
+  padding-top: 10px;
+}
+
+.text-interlineado {
+  line-height: 25px;
+  font-size: 17px;
+  color: dimgray;
+}
+.color-autor{
+  color: #4fa0cb !important;
+}

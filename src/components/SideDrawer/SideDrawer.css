@@ -1,0 +1,35 @@
+.side-drawer{
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0-5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    z-index: 200;
+
+}
+
+.menulist{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.sideLink{
+    color: #521751;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.sideLink:hover,
+.side-Link:active{
+    color: white;
+    background-color: rgb(207, 133, 133, 1 ) !important;
+}
