@@ -2,8 +2,9 @@ import React from 'react';
 
 import './DrawerToggleButton.css';
 
+
 const DrawerToggleButton = props => (
-    <button className="toggle-button">
+    <button className="toggle-button" onClick={props.click}>
         <div className="toggler-button_line"></div>
         <div className="toggler-button_line"></div>
         <div className="toggler-button_line"></div>

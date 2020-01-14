@@ -6,7 +6,6 @@ import { Typography } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Divider from "@material-ui/core/Divider";
-import MiniCards from "../components/MiniCards";
 // import Tags from "../components/Tags";
 // import Header from "../components/Header";
 /*Icons FontAwesome */
@@ -18,8 +17,8 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Hidden from "@material-ui/core/Hidden";
 /*AXIOS*/
 import axios from 'axios';
-/* SHARED BUTTON (pendiente)*/
-// import FacebookShare from "../components/FacebookShare";
+
+import MiniCard from '../components/miniCard/MiniCard';
 
 class BlogPost extends React.Component {
   state = {
@@ -97,7 +96,11 @@ class BlogPost extends React.Component {
           <Grid container spacing={4}>
             <Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
               <Card>
-                <CardMedia className="img-art" image={img} title={this.props.match.params.articuloId} />
+                <CardMedia 
+                  className="img-art" 
+                  image={img} 
+                  title={this.props.match.params.articuloId} 
+                />
               </Card>
               <Typography className="titulo-espacio" align="left" variant="h4">
                 {this.state.Art1.Nombre}
@@ -112,16 +115,6 @@ class BlogPost extends React.Component {
               <p className="text-align text-interlineado" dangerouslySetInnerHTML={{ __html: this.state.Art1.Body }}>
 
               </p>
-              {/* <Typography align="left" variant="subtitle1" color="textSecondary">
-                TEMAS:
-            </Typography>
-              <div className="tags">
-                <Tags />
-                <Tags />
-                <Tags />
-                <Tags />
-                <Tags />
-              </div> */}
               <Divider />
               <Typography
                 align="left"
@@ -129,14 +122,20 @@ class BlogPost extends React.Component {
                 color="textSecondary"
                 gutterBottom
               >
-                TAMBIÉN TE PODRÍA GUSTAR
+                <p className="subTitles">TAMBIÉN TE PODRÍA GUSTAR</p>
             </Typography>
               <Grid container spacing={2}>
                 <Grid item xl={6} sm={6} md={6} xs={12}>
-                  <MiniCards titulo={this.state.Art2.Nombre} ImgUrl={this.state.Art2.ImgUrl} ruta={this.state.Art2.Url} />
+                  <MiniCard 
+                    titulo={this.state.Art2.Nombre} 
+                    image={this.state.Art2.ImgUrl} 
+                    ruta={this.state.Art2.Url} />
                 </Grid>
                 <Grid item xl={6} sm={6} md={6} xs={12}>
-                  <MiniCards titulo={this.state.Art3.Nombre} ImgUrl={this.state.Art3.ImgUrl} ruta={this.state.Art3.Url} />
+                  <MiniCard 
+                  titulo={this.state.Art3.Nombre} 
+                  image={this.state.Art3.ImgUrl} 
+                  ruta={this.state.Art3.Url} />
                 </Grid>
               </Grid>
             </Grid>
@@ -148,9 +147,8 @@ class BlogPost extends React.Component {
                     align="left"
                     variant="subtitle1"
                     color="textSecondary"
-
                   >
-                    SÍGUENOS
+                   <p className="subTitles">SÍGUENOS</p> 
                 </Typography>
                   <Typography align="left" display="block">
                     <FontAwesomeIcon
@@ -182,14 +180,18 @@ class BlogPost extends React.Component {
                       variant="subtitle1"
                       color="textSecondary"
                     >
-                      MÁS ARTÍCULOS
+                      <p className="subTitles">MÁS ARTÍCULOS</p>
                     </Typography>
                     <Grid container spacing={2}>
                       <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                        <MiniCards titulo={this.state.Art4.Nombre} ImgUrl={this.state.Art4.ImgUrl} ruta={this.state.Art4.Url} />
+                        <MiniCard 
+                          titulo={this.state.Art4.Nombre} image={this.state.Art4.ImgUrl} 
+                          ruta={this.state.Art4.Url} />
                       </Grid>
                       <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                        <MiniCards titulo={this.state.Art5.Nombre} ImgUrl={this.state.Art5.ImgUrl} ruta={this.state.Art5.Url} />
+                        <MiniCard 
+                          titulo={this.state.Art5.Nombre} image={this.state.Art5.ImgUrl} 
+                          ruta={this.state.Art5.Url} />
                       </Grid>
                     </Grid>
                   </Grid>

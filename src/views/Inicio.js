@@ -8,8 +8,7 @@ import AllPosts from '../components/allPosts/AllPosts';
 import PostCard from '../components/postCard/postCard';
 //Axios
 import axios from 'axios';
-import SearchBox from '../components/searchBox/SearchBox';
-import SearchBoxFetch from '../components/searchBoxFetch/SearchBoxFetch';
+
 
 class Inicio extends React.Component {
   state = {
@@ -61,11 +60,6 @@ class Inicio extends React.Component {
         >
           Artículos Recientes
         </h3>
-        <input 
-          type='search'
-          placeholder='buscador...'
-          onChange={e => this.setState({ searchField: e.target.value})}
-        />
         </div>
         
         <div className="directory-inicio">
@@ -124,9 +118,12 @@ class Inicio extends React.Component {
           >
           </PostCard>
         </div>
-          <AllPosts><Button className="colorButton" variant="contained" size="small" >
-          Más Artículos
-        </Button></AllPosts>
+          <AllPosts>
+            <Button 
+              className="colorButton" variant="contained" size="small" >
+              Más Artículos
+            </Button>
+          </AllPosts>
     </div>
     );
   }

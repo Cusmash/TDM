@@ -5,31 +5,27 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 70%;
-    max-width: 400px;
+    width: 50%;
+    max-width: 300px;
     z-index: 200;
-
+    flex-flow: wrap;
+    background-color: #4fa0cb;
 }
 
-.menulist{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
+.sideD-links{
+    height: 100%;
+    display: flex!important;
+    flex-direction: column!important;
+    justify-content: center!important;
 }
 
-.sideLink{
-    color: #521751;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: Roboto;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
+.sdlink{
+    color: white!important;
+    margin: 0.5rem 0!important;
+    font-size: 1.0rem !important;
+    margin-top: 10px!important;
 }
 
-.sideLink:hover,
-.side-Link:active{
-    color: white;
-    background-color: rgb(207, 133, 133, 1 ) !important;
+.sdlink:hover{
+    background-color: rgb(232, 83, 83, 1 ) !important;
 }

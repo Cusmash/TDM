@@ -1,31 +1,27 @@
 import React from 'react';
 import { Link as Link2 } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 import './SideDrawer.css';
-import { MenuList, MenuItem } from '@material-ui/core';
 
 const SideDrawer = props => (
-    <nav className='side-drawer'>
-        <h1>Menu</h1>
-        <MenuList className='menulist'> 
-        <MenuItem 
-            component={Link2} 
-            className="sideLink" 
-            to={`/`}>Inicio
-        </MenuItem>
+    <nav className="side-drawer">
+      <div 
+        className="sideD-links">
+        <Button component={Link2} className="sdlink" to={`/`}>Inicio
+        </Button>
         {props.section.map((section, id) => (
-        <MenuItem 
-          component={Link2} 
-          className="sideLink"
-          key={id}  
-          to={`/seccion/${section.IdSection}`}
-        >
-            {section.Nombre}
-        </MenuItem>
+            <Button 
+                component={Link2} 
+                className="sdlink"
+                key={id}  
+                to={`/seccion/${section.IdSection}`}
+            >
+                {section.Nombre}
+            </Button>
 
-        ))}
-        </MenuList>
+          ))}
+      </div>
     </nav>
-);
-
+)
 export default SideDrawer;
