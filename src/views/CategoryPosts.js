@@ -45,8 +45,8 @@ class CategoryPosts extends React.Component {
                 });
             })
         }
-        console.log(prevProps)
-        console.log(this.props)
+        // console.log(prevProps)
+        // console.log(this.props)
     }
 
     render() {

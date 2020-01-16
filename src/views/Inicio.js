@@ -28,7 +28,7 @@ class Inicio extends React.Component {
 
   componentDidMount() {
     //OBTENER ARTICULOS DE INICIO http://prosisdev.sytes.net:84/api/inicio http://localhost:8082/api/inicio
-    axios.get(`http://localhost:8082/api/inicio/all`)
+    axios.get(`http://localhost:8082/api/inicio`)
       .then(res => {
         if(res){
           let datosArticuloInicio = res.data.data;

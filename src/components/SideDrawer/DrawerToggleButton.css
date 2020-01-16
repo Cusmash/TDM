@@ -10,7 +10,6 @@
     padding: 0;
     box-sizing: border-box;
     display: none;
-    margin-top: 3px;
 }
 
 .toggle-button:focus{
@@ -28,9 +27,6 @@
     .toggle-button{
         display: block;
         width: 100%;
-        margin-left: 2vw;
-    }
-
-
-    
+        padding: 2vw;
+    } 
 }

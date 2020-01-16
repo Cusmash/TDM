@@ -1,13 +1,13 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
-import "../css/Footer.css";
+import "./Footer.css";
 import { Container } from "@material-ui/core";
 import { Typography } from '@material-ui/core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import Logo from "../logo.png";
+import Logo from "../../Assets/logo.png";
 class Footer extends React.Component {
 
     render() {

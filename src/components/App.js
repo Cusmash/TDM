@@ -4,14 +4,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Inicio from "../views/Inicio";
 import BlogPost from "../views/BlogPost";
 import AllPosts from "./allPosts/AllPosts";
-import Footer from "../components/Footer";
+import Footer from "./Footer/Footer";
 import CategoryPosts from "../views/CategoryPosts";
 import Navcontent from './Navcontent/Navcontent';
 import Header from './header/Header';
 import SideDrawer from "./SideDrawer/SideDrawer";
 import Backdrop from './Backdrop/Backdrop';
-
-
 
 class App extends React.Component {
   state = {
@@ -20,11 +18,10 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    //OBTENER ARTICULOS DE INICIO http://prosisdev.sytes.net:84/api/inicio http://localhost:8082/api/inicio
     fetch('http://localhost:8082/api/inicio')
       .then(res => res.json() )
       .then(data => {
-        if(data){
+        if(data) {
           let datosArticuloInicio = data.data[9]
           this.setState({
             section: datosArticuloInicio
