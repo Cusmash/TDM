@@ -1,3 +1,9 @@
+.containerpost{
+    padding-left: 1vw;
+    background-color: black;
+    margin-bottom: -2vh;
+}
+
 .directory-inicio {
     width: 80%;
     display: flex;

@@ -25,7 +25,6 @@ class AllPosts extends React.Component {
     render() {
         return (
             <Fragment>
-
             <div className="directory-inicio">
                 {this.state.articulosBySection.map((articulo, key) => (
                     <PostCard 
