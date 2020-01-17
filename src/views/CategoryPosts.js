@@ -11,7 +11,7 @@ class CategoryPosts extends React.Component {
         nextArt: 6
     }
     componentDidMount() {
-        axios.get(`http://localhost:8082/api/seccion/${this.props.match.params.section}`)
+        axios.get(`http://prosisdev.sytes.net:84/api/seccion/${this.props.match.params.section}`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({
@@ -23,7 +23,7 @@ class CategoryPosts extends React.Component {
     }
     nextrows = () => {
         var nextActual = this.state.nextArt;
-        axios.get(`http://localhost:8082/api/seccion/${this.props.match.params.section}/${this.state.nextArt}`)
+        axios.get(`http://prosisdev.sytes.net:84/api/seccion/${this.props.match.params.section}/${this.state.nextArt}`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({
@@ -37,7 +37,7 @@ class CategoryPosts extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props.match.params.section !== prevProps.match.params.section){
-            axios.get(`http://localhost:8082/api/seccion/${this.props.match.params.section}`)
+            axios.get(`http://prosisdev.sytes.net:84/api/seccion/${this.props.match.params.section}`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({
@@ -51,7 +51,8 @@ class CategoryPosts extends React.Component {
 
     render() {
         return (
-            <div >
+            <div className="container">
+            <br/>
                 <div className="directory-inicio">
                 {this.state.articulosBySection.map(articulo => (
                         <PostCard key={articulo.Nombre} 

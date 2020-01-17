@@ -25,3 +25,9 @@
     align-items: center;
     margin-left: 10%;
 }
+
+.container{
+    padding-left: 1vw;
+    background-color: black;
+    margin-bottom: -2vh;
+}

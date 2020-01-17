@@ -1,18 +1,30 @@
+.containerpost{
+    min-width: 30%;
+    height: 240px;
+    flex: 1 1 auto;
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+    margin: 0 7.5px 15px;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
 .card{
     min-width: 30%;
     height: 240px;
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
-    border: 1px solid black;
-    margin: 0 7.5px 15px;
     background-position: center;
     background-size: cover;
     opacity: 0.8;
+    align-items: flex-end;
+    overflow: hidden;
 }
 
 .title {
-    padding-top: 170px;
     font-weight: bold;
     margin-bottom: 6px;
     width: 100%;
@@ -26,10 +38,13 @@
     width: 300px;
     align-items: center;
     margin-top: 25px;
+    padding-bottom: 4px;
 }
 
 .card:hover{
     opacity: 1;
+    transform: scale(1.1);
+    transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 }
 
 @media screen and (max-width: 700px){

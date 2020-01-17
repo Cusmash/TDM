@@ -8,7 +8,7 @@ function PostCard ({ titulo, fecha, image, ruta}) {
     return(
         <Fragment>
             <div style={{
-                backgroundImage: `url(http://localhost:8082/api/img/${image})`
+                backgroundImage: `url(http://prosisdev.sytes.net:84/api/img/${image})`
             }}
             className="card"
             >

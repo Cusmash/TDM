@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 
 import './Navcontent.css';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
+import logo from '../../Assets/logo.png';
 
 export default function Navcontent(props) {
 
@@ -12,6 +13,7 @@ export default function Navcontent(props) {
       <div>
         <DrawerToggleButton click={props.drawerClickHandler}/>
       </div>
+      <img className="icon" src={logo}/>
       <div className="nav-links">
           <Button component={Link2} className="navlink" to={`/`}>Inicio
           </Button>

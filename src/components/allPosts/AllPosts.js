@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Button from '@material-ui/core/Button';
 // import Header from "../components/Header";
 import axios from 'axios';
@@ -13,7 +13,7 @@ class AllPosts extends React.Component {
     }
     nextrows = () => {
         var nextActual = this.state.nextArt;
-        axios.get(`http://localhost:8082/api/inicio/all/${this.state.nextArt}`)
+        axios.get(`http://prosisdev.sytes.net:84/api/inicio/all/${this.state.nextArt}`)
             .then(res => {
                 const datosArticulo = res.data.data;
                 this.setState({
@@ -24,6 +24,8 @@ class AllPosts extends React.Component {
     }
     render() {
         return (
+            <Fragment>
+
             <div className="directory-inicio">
                 {this.state.articulosBySection.map((articulo, key) => (
                     <PostCard 
@@ -32,6 +34,7 @@ class AllPosts extends React.Component {
                         image={articulo.ImgUrl}>
                     </PostCard>
                 ))}
+            </div>
                  <Button 
                     onClick={this.nextrows} variant="contained" 
                     className="colorButton"
@@ -39,8 +42,7 @@ class AllPosts extends React.Component {
                 >
                     Más Artículos
                 </Button>
-            </div>
-
+            </Fragment>
         )
     }
 }

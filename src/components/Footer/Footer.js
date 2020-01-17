@@ -10,6 +10,17 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Logo from "../../Assets/logo.png";
 class Footer extends React.Component {
 
+    Facebook = () => {
+        window.location.assign('https://www.facebook.com/TwoDifferentMinds');
+      }
+      Instagram = () => {
+        window.location.assign('https://www.instagram.com/twodifferentminds/');
+      }
+      Twitter = () => {
+        window.location.assign('https://twitter.com/TDifferentMinds');
+    
+      }
+      
     render() {
         return (
             <div className="footer-bg">
@@ -21,20 +32,19 @@ class Footer extends React.Component {
                                     <img className="footer-logo" src={Logo} alt="img" />
                                 </Grid>
                                 <Grid className="footer-g" xs={6} sm={4} md={3} lg={3} xl={3} item>
-                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Nosotros</Typography>
-                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Contáctanos</Typography>
-                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Nosotros</Typography>
+                                    {/* <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Nosotros</Typography> */}
+                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Contáctanos en nuestras redes sociales</Typography>
                                 </Grid>
                                 <Grid className="footer-g" xs={6} sm={4} md={3} lg={3} xl={3} item>
-                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Qwerteam</Typography>
-                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Two Different Minds</Typography>
+                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>De parte de: </Typography>
+                                    <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Qwerteam y Two Different Minds gracias por visitarnos</Typography>
                                 </Grid>
                                 <Grid className="footer-g" xs={12} sm={4} md={3} lg={3} xl={3} item>
                                     <Typography className="footer-link" align="left" variant="overline" display="block" gutterBottom>Síguenos</Typography>
                                     <Typography align="left" display="block">
-                                        <FontAwesomeIcon icon={faFacebookF} size="1x" style={{ color: "white", margin: 10 }} />
-                                        <FontAwesomeIcon icon={faTwitter} size="1x" style={{ color: "white", margin: 10 }} />
-                                        <FontAwesomeIcon icon={faInstagram} size="1x" style={{ color: "white", margin: 10 }} />
+                                        <FontAwesomeIcon icon={faFacebookF} size="1x" style={{ color: "white", margin: 10 }} onClick={this.Facebook} className="cursor" />
+                                        <FontAwesomeIcon icon={faTwitter} size="1x" style={{ color: "white", margin: 10 }} onClick={this.Twitter} className="cursor" />
+                                        <FontAwesomeIcon icon={faInstagram} size="1x" style={{ color: "white", margin: 10 }} onClick={this.Instagram} className="cursor" />
                                     </Typography>
                                 </Grid>
                             </Grid>

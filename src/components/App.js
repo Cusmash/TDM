@@ -18,7 +18,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:8082/api/inicio')
+    fetch('http://prosisdev.sytes.net:84/api/inicio')
       .then(res => res.json() )
       .then(data => {
         if(data) {

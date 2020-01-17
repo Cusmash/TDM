@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import bg from "../../Assets/bg.png";
 import { Container } from "@material-ui/core";
+import './Header.css';
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
@@ -17,7 +18,9 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${bg})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center"
+    backgroundPosition: "center",
+    marginLeft: "4vw",
+    marginRight: "3vw"
   },
   overlay: {
     position: "absolute",
@@ -36,9 +39,9 @@ const useStyles = makeStyles(theme => ({
     }
   },
   textColor: {
-    color: "",
-    // color: "#1b65a7",
-    textShadow: "1px 2px 8px gray",
+    color: "white",
+    // color: "#1b65a7",  textShadow: "1px 2px 8px gray",
+    textShadow: "1px 1px 1px gray",
     textAlign: "center"
   }
 }));
@@ -46,30 +49,16 @@ const useStyles = makeStyles(theme => ({
 export default function Header() {
   const classes = useStyles();
   return (
-    <Paper className={classes.mainFeaturedPost}>
-      <div className={classes.overlay} />
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item md={12} xs={12} lg={12} sm={12}>
-            <div className={classes.mainFeaturedPostContent}>
-              {/* <Typography
-                component="h1"
-                variant="h3"
-                color="inherit"
-                gutterBottom
-                className={classes.textColor}
-                align="center"
-              >
-                TwoDifferentMinds
-              </Typography> */}
-              <Logo></Logo>
-              <Typography variant="h5" className={classes.textColor} paragraph align="center">
-                Artículos, opiniones, reseñas y más...
-              </Typography>
-            </div>
-          </Grid>
-        </Grid>
-      </Container>
-    </Paper>
+    <div className="container" >
+      <div className="imgheader" style={{backgroundImage: `url(${bg})`}}>
+        <div  />
+              <div className={classes.mainFeaturedPostContent}>
+                <Logo></Logo>
+                <Typography variant="h5" className={classes.textColor} paragraph align="center">
+                  Artículos, opiniones, reseñas y más...
+                </Typography>
+              </div>
+      </div>
+    </div>
   );
 }

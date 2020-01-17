@@ -6,9 +6,9 @@ function PostCard ({ titulo, fecha, image, ruta}) {
 
     console.log()
     return(
-        <Fragment>
+        <div className="containerpost">
             <div style={{
-                backgroundImage: `url(http://localhost:8082/api/img/${image})`
+                backgroundImage: `url(http://prosisdev.sytes.net:84/api/img/${image})`
             }}
             className="card"
             >
@@ -21,7 +21,7 @@ function PostCard ({ titulo, fecha, image, ruta}) {
                 </Link>
                 
             </div>
-        </Fragment>
+        </div>
     )
 }
 

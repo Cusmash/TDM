@@ -8,6 +8,7 @@ import AllPosts from '../components/allPosts/AllPosts';
 import PostCard from '../components/postCard/postCard';
 //Axios
 import axios from 'axios';
+import bg from '../Assets/bg.png';
 
 
 class Inicio extends React.Component {
@@ -28,7 +29,7 @@ class Inicio extends React.Component {
 
   componentDidMount() {
     //OBTENER ARTICULOS DE INICIO http://prosisdev.sytes.net:84/api/inicio http://localhost:8082/api/inicio
-    axios.get(`http://localhost:8082/api/inicio`)
+    axios.get(`http://prosisdev.sytes.net:84/api/inicio`)
       .then(res => {
         if(res){
           let datosArticuloInicio = res.data.data;
@@ -53,15 +54,10 @@ class Inicio extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="buscar-artRec">
-          <h3 
-          className="articulos-recientes"
-        >
-          Artículos Recientes
-        </h3>
-        </div>
-        
+      <div className="container">
+      <br/>
+      <br/>
+      <br/>
         <div className="directory-inicio">
           <PostCard
             titulo={this.state.art1.Nombre} 
@@ -118,7 +114,8 @@ class Inicio extends React.Component {
           >
           </PostCard>
         </div>
-          <AllPosts>
+        <br/>
+          <AllPosts className="divbtn">
             <Button 
               className="colorButton" variant="contained" size="small" >
               Más Artículos
