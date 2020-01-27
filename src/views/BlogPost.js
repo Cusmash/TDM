@@ -13,12 +13,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+
+import FBSharing from "../components/SharingButton";
+
+import { Helmet } from "react-helmet";
 /*Responsiveness */
 import Hidden from "@material-ui/core/Hidden";
 /*AXIOS*/
-import axios from 'axios';
+import axios from "axios";
 
-import MiniCard from '../components/miniCard/MiniCard';
+import MiniCard from "../components/miniCard/MiniCard";
 
 class BlogPost extends React.Component {
   state = {
@@ -28,12 +32,15 @@ class BlogPost extends React.Component {
     Art4: [],
     Art5: [],
     section: []
-  }
+  };
   componentDidMount() {
     window.scrollTo(0, 0);
     //OBTENER RUTA DE ARTICULO
     // {this.props.match.params.ruta}
-    axios.get(`http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`)
+    axios
+      .get(
+        `http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`
+      )
       .then(res => {
         const datosArticulo = res.data.data[0];
         const datosArticulo2 = res.data.data[1];
@@ -49,13 +56,18 @@ class BlogPost extends React.Component {
           Art5: datosArticulo5,
           section: datosArticulo6
         });
-      })
-      
+      });
   }
+
   componentDidUpdate(prevProps) {
     window.scrollTo(0, 0);
-    if (prevProps.match.params.articuloId !== this.props.match.params.articuloId) {
-      axios.get(`http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`)
+    if (
+      prevProps.match.params.articuloId !== this.props.match.params.articuloId
+    ) {
+      axios
+        .get(
+          `http://prosisdev.sytes.net:84/api/articulo/${this.props.match.params.articuloId}`
+        )
         .then(res => {
           const datosArticulo = res.data.data[0];
           const datosArticulo2 = res.data.data[1];
@@ -71,50 +83,84 @@ class BlogPost extends React.Component {
             Art5: datosArticulo5,
             section: datosArticulo6
           });
-        })
-     
+        });
     }
-
   }
-
 
   Facebook = () => {
-    window.location.assign('https://www.facebook.com/TwoDifferentMinds');
-  }
+    window.location.assign("https://www.facebook.com/TwoDifferentMinds");
+  };
   Instagram = () => {
-    window.location.assign('https://www.instagram.com/twodifferentminds/');
-  }
+    window.location.assign("https://www.instagram.com/twodifferentminds/");
+  };
   Twitter = () => {
-    window.location.assign('https://twitter.com/TDifferentMinds');
-
-  }
+    window.location.assign("https://twitter.com/TDifferentMinds");
+  };
   render() {
     var img = `http://prosisdev.sytes.net:84/api/img/${this.state.Art1.ImgUrl}`;
+    var url = `http://www.twodifferentminds.com/articulo/${this.props.match.params.articuloId}`;
+    // var ulr2 =`${this.props.match.params.articuloId}`;
+    console.log(img);
+    console.log(url);
     return (
       <div>
+        <Helmet>
+          <title>{this.state.Art1.Nombre}</title>
+          <link rel="canonical" content={url} />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={this.state.Art1.Nombre} />
+          <meta property="og:url" content={url} />
+          <meta property="og:image" content={img} />
+        </Helmet>
         <Container maxWidth="lg" className="espacio-header">
           <Grid container spacing={4}>
             <Grid item xl={9} lg={9} md={9} sm={12} xs={12}>
               <Card>
-                <CardMedia 
-                  className="img-art" 
-                  image={img} 
-                  title={this.props.match.params.articuloId} 
+                <CardMedia
+                  className="img-art"
+                  image={img}
+                  title={this.props.match.params.articuloId}
                 />
               </Card>
               <Typography className="titulo-espacio" align="left" variant="h4">
                 {this.state.Art1.Nombre}
               </Typography>
-              <Typography align="left" variant="subtitle1" color="textSecondary" className="color-autor">
+              <Typography
+                align="left"
+                variant="subtitle1"
+                color="textSecondary"
+                className="color-autor"
+              >
+                <span className="autor">Autor:</span>{" "}
                 {this.state.Art1.UserName + "  "}
-              </Typography>
-              <Typography align="left" variant="subtitle1" color="textSecondary">
+                <span className="autor">Fecha de Publicacion:</span>{" "}
                 {this.state.Art1.Fecha}
               </Typography>
-              <Divider />
-              <p className="text-align text-interlineado" dangerouslySetInnerHTML={{ __html: this.state.Art1.Body }}>
+              <Typography
+                align="left"
+                variant="subtitle1"
+                color="textSecondary"
+              ></Typography>
+              {/* <FacebookShare 
+                  image={img} 
+                  titulo={this.props.match.params.articuloId}
+                  fecha={this.state.Art1.Fecha} /> */}
 
-              </p>
+              <FBSharing image={img} title={url} />
+
+              <Divider />
+              <p
+                className="text-align text-interlineado"
+                dangerouslySetInnerHTML={{ __html: this.state.Art1.Body }}
+              ></p>
+              {/* Comentarios de Fb */}
+              <div
+                class="fb-comments"
+                data-href="http://www.twodifferentminds.com"
+                data-width=""
+                data-numposts="5"
+              ></div>
+
               <Divider />
               <Typography
                 align="left"
@@ -123,19 +169,21 @@ class BlogPost extends React.Component {
                 gutterBottom
               >
                 <p className="subTitles">TAMBIÉN TE PODRÍA GUSTAR</p>
-            </Typography>
+              </Typography>
               <Grid container spacing={2}>
                 <Grid item xl={6} sm={6} md={6} xs={12}>
-                  <MiniCard 
-                    titulo={this.state.Art2.Nombre} 
-                    image={this.state.Art2.ImgUrl} 
-                    ruta={this.state.Art2.Url} />
+                  <MiniCard
+                    titulo={this.state.Art2.Nombre}
+                    image={this.state.Art2.ImgUrl}
+                    ruta={this.state.Art2.Url}
+                  />
                 </Grid>
                 <Grid item xl={6} sm={6} md={6} xs={12}>
-                  <MiniCard 
-                  titulo={this.state.Art3.Nombre} 
-                  image={this.state.Art3.ImgUrl} 
-                  ruta={this.state.Art3.Url} />
+                  <MiniCard
+                    titulo={this.state.Art3.Nombre}
+                    image={this.state.Art3.ImgUrl}
+                    ruta={this.state.Art3.Url}
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -148,8 +196,8 @@ class BlogPost extends React.Component {
                     variant="subtitle1"
                     color="textSecondary"
                   >
-                   <p className="subTitles">SÍGUENOS</p> 
-                </Typography>
+                    <p className="subTitles">SÍGUENOS</p>
+                  </Typography>
                   <Typography align="left" display="block">
                     <FontAwesomeIcon
                       icon={faFacebookF}
@@ -184,14 +232,18 @@ class BlogPost extends React.Component {
                     </Typography>
                     <Grid container spacing={2}>
                       <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                        <MiniCard 
-                          titulo={this.state.Art4.Nombre} image={this.state.Art4.ImgUrl} 
-                          ruta={this.state.Art4.Url} />
+                        <MiniCard
+                          titulo={this.state.Art4.Nombre}
+                          image={this.state.Art4.ImgUrl}
+                          ruta={this.state.Art4.Url}
+                        />
                       </Grid>
                       <Grid item xl={12} lg={12} md={12} sm={6} xs={12}>
-                        <MiniCard 
-                          titulo={this.state.Art5.Nombre} image={this.state.Art5.ImgUrl} 
-                          ruta={this.state.Art5.Url} />
+                        <MiniCard
+                          titulo={this.state.Art5.Nombre}
+                          image={this.state.Art5.ImgUrl}
+                          ruta={this.state.Art5.Url}
+                        />
                       </Grid>
                     </Grid>
                   </Grid>

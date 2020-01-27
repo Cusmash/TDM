@@ -45,3 +45,11 @@
 .espacio-header{
   background-color:  whitesmoke;
 }
+
+.Compartir:hover{
+  cursor: pointer!important;
+}
+
+.autor{
+  color: black !important;
+}

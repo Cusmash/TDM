@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import "../css/App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Inicio from "../views/Inicio";
@@ -6,27 +7,27 @@ import BlogPost from "../views/BlogPost";
 import AllPosts from "./allPosts/AllPosts";
 import Footer from "./Footer/Footer";
 import CategoryPosts from "../views/CategoryPosts";
-import Navcontent from './Navcontent/Navcontent';
-import Header from './header/Header';
+import Navcontent from "./Navcontent/Navcontent";
+import Header from "./header/Header";
 import SideDrawer from "./SideDrawer/SideDrawer";
-import Backdrop from './Backdrop/Backdrop';
+import Backdrop from "./Backdrop/Backdrop";
 
 class App extends React.Component {
   state = {
-    section:[],
+    section: [],
     sideDrawerOpen: false
   };
 
   componentDidMount() {
-    fetch('http://prosisdev.sytes.net:84/api/inicio')
-      .then(res => res.json() )
+    fetch("http://prosisdev.sytes.net:84/api/inicio")
+      .then(res => res.json())
       .then(data => {
-        if(data) {
-          let datosArticuloInicio = data.data[9]
+        if (data) {
+          let datosArticuloInicio = data.data[9];
           this.setState({
             section: datosArticuloInicio
-          }); 
-        } 
+          });
+        }
       })
       .catch(error => {
         console.log(error);
@@ -34,48 +35,51 @@ class App extends React.Component {
   }
 
   drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    })
-  }
+    });
+  };
 
   backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false})
-  }
+    this.setState({ sideDrawerOpen: false });
+  };
 
   render() {
     let sideDrawer;
     let backdrop;
 
-    if(this.state.sideDrawerOpen) {
-      sideDrawer = <SideDrawer section={this.state.section}/>;
-      backdrop = <Backdrop click={this.backdropClickHandler}/>;
+    if (this.state.sideDrawerOpen) {
+      sideDrawer = <SideDrawer section={this.state.section} />;
+      backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
     return (
-      <div className="App" style={{height: '100%'}}>
+      <div className="App" style={{ height: "100%" }}>
+        <Helmet>
+          <title>Blog de Noticias | TwoDifferentMinds</title>
+          <meta name="description"   content="Contamos con las mejores Noticias, Artículos de opinión y columnas ¡Tu puedes ser parte de esta comunidad votando o comentando.!" />
+          <link rel="canonical" href="https://www.TwoDifferentMinds.com" />
+        </Helmet>
         <BrowserRouter>
-        <Navcontent 
-          section={this.state.section}
-          drawerClickHandler={this.drawerToggleClickHandler}
-        >
-
-        </Navcontent>
-        {sideDrawer}
-        {backdrop}
-        <Header></Header>
+          <Navcontent
+            section={this.state.section}
+            drawerClickHandler={this.drawerToggleClickHandler}
+          />
+          {sideDrawer}
+          {backdrop}
+          <Header></Header>
           <Switch>
             <Route exact path="/" component={Inicio} />
             <Route exact path="/articulo/undefined" component={Inicio} />
             <Route exact path="/seccion/:section" component={CategoryPosts} />
             <Route exact path="/inicio/all" component={AllPosts} />
             <Route path="/articulo/:articuloId" component={BlogPost} />
-  
+
             <Route render={() => <div>404 Not Found</div>} />
           </Switch>
         </BrowserRouter>
         <Footer></Footer>
       </div>
-    )
+    );
   }
 }
 

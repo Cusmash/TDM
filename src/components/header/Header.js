@@ -2,11 +2,8 @@ import React from "react";
 //Imports Header
 import Logo from "../logo/Logo";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import bg from "../../Assets/bg.png";
-import { Container } from "@material-ui/core";
 import './Header.css';
 
 const useStyles = makeStyles(theme => ({

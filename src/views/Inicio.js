@@ -8,8 +8,6 @@ import AllPosts from '../components/allPosts/AllPosts';
 import PostCard from '../components/postCard/postCard';
 //Axios
 import axios from 'axios';
-import bg from '../Assets/bg.png';
-
 
 class Inicio extends React.Component {
   state = {

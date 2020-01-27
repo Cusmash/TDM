@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import "../css/FacebookShare.css"
 import { 
   FacebookShareButton, 
   FacebookIcon
 } from 'react-share';
-export default class FacebookShare extends Component {
-  render() {
+
+function FacebookShare ({ titulo, fecha, image, ruta}) {
+
     return (
-      <FacebookShareButton url='http://www.twodifferentminds.com/articulo/La-ciencia-detras-de-la-teoria-de-sistemas' quote='La-ciencia-detras-de-la-teoria-de-sistemas' hashtag='#Samvikshana'>
+      <FacebookShareButton link={titulo} url='www.twodifferentminds.com/articulo/${titulo}' quote={image}>
+        
         <FacebookIcon  size={32}/>
+        {/* hashtag='#Samvikshana' */}
       </FacebookShareButton>
     );
-  }
 }
+
+export default FacebookShare;

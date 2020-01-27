@@ -4,4 +4,4 @@ import './css/index.css';
 import App from './components/App.js';
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.hydrate(<App />, document.getElementById('root'));
